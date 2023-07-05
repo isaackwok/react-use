@@ -13,12 +13,12 @@ const Demo = () => {
   const { zoomingState, pinchState } = usePinchZoom(scaleRef);
 
   useEffect(() => {
-    if (zoomingState === "ZOOM_IN") {
+    if (zoomingState === "ZOOMING_IN") {
       // perform zoom in scaling
-      setState(scale + 0.1)
-    } else if (zoomingState === "ZOOM_OUT") {
+      setState(prevScale => prevScale + 0.1)
+    } else if (zoomingState === "ZOOMING_OUT") {
       // perform zoom out in scaling
-      setState(scale - 0.1)
+      setState(prevScale => prevScale - 0.1)
     }
   }, [zoomingState]);
 
